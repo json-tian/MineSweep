@@ -1,14 +1,10 @@
-// JavaScript source code
-//1) Basic Setup
-//2) Determine Winner
-//3) Basic AI and winner notification
-//4) Minimax algorithm (unbeatable ai) - not implemented in this code
+//Jason's Original Minesweeper
 
 var origBoard;  //Board
 
 const cells = document.querySelectorAll('.cell');   //Get cells from html
 //const cellsState = document.querySelectorAll('.cell');
-const cellsState = new Array(100);   // f.length == 3, f[0] == undefined
+const cellsState = new Array(100);  
 cellsState.fill('');
 
 startGame();
@@ -341,10 +337,6 @@ function gameOver(gameWon) {
     else
         declareWinner("You lose!");
 
-}
-
-function emptySquares() {
-    //return origBoard.filter(s => typeof s == 'number'); //Number of squares that are empty
 }
 
 function declareWinner(who) {
