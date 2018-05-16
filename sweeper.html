@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<div class="timer">
+        <h1><time>00:00:0<time/><h1/>
+</div>
     <!-- <script>
     window.onload = function() {  // reload file every second
         setInterval(function() { location.reload(); } , 5000);
@@ -146,8 +150,32 @@
     <div class="endgame">
         <div class="text"></div>
     </div>
-    <button onclick="startGame()">Replay</button>
+    <button onclick="startGame(10)">New Game (Easy)</button>
+    <br><br>
+    <button onclick="startGame(20)">New Game (Medium)</button>
+    <br><br>
+    <button onclick="startGame(25)">New Game (Hard)</button>
+    <br><br>
 
     <script src="game.js"></script>
+
+<!--
+    <div data-role="popup" id="myPopup" class="ui-content" style="min-width:250px;">
+      <form method="post" action="/insert.php">
+        <div>
+          <h3>Enter to Leaderboards</h3>
+          <label for="usrnm" class="ui-hidden-accessible">Username:</label>
+          <input type="text" name="user" id="usrnm" placeholder="Username">
+        <label for="time" class="time">
+
+        </label>
+
+          <input type="submit" data-inline="true" value="Submit">
+        </div>
+      </form>
+      <br>
+      <a href="highscores.php">View High Scores</a>
+    </div>
+-->
 </body>
 </html>

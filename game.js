@@ -3,16 +3,51 @@
 var origBoard;  //Board
 
 const cells = document.querySelectorAll('.cell');   //Get cells from html
+var clicks = 0;
 //const cellsState = document.querySelectorAll('.cell');
 const cellsState = new Array(100);  
 cellsState.fill('');
+var h1 = document.querySelectorAll('h1')[0]
+var milliseconds = 0
+var seconds = 0
+var minutes = 0
+var hours = 0
+var t;
+var gameFinished = false;
 
-startGame();
+function add() {
+    milliseconds++;
+    if (milliseconds >= 10) {
+        milliseconds = 0;
+        seconds++;
+        if (seconds >= 60) {
+            seconds = 0;
+            minutes++;
+            if (minutes >= 60) {
+                minutes = 0;
+                hours++;
+            }
+        }
+    }
 
+    h1.innerText = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds + ":" + milliseconds);
 
-function startGame() {
+    timer();
+}
+function timer() {
+    t = setTimeout(add, 100);
+}
+
+function startGame(mines) {
+    gameFinished = false;
+    clearTimeout(t);
+    clicks = 0;
+    h1.innerText = "00:00:0";
+    seconds = 0;
+    minutes = 0;
+    hours = 0;
+    milliseconds = 0;
     cellsState.fill('');
-
 
     document.querySelector(".endgame").style.display = "none";  //Ignore css styles
     origBoard = Array.from(Array(100).keys()); //Create array of 9 elements (0-8)
@@ -22,7 +57,7 @@ function startGame() {
         cells[y].style.color = 'black';
 
     }
-    for (var j = 0; j <= 20; j ++) {
+    for (var j = 0; j < mines; j ++) {
         var placed = false;
         do {
             var temp = Math.floor(Math.random()*100);
@@ -251,6 +286,10 @@ if (document.addEventListener) {
 }
 
 function rightClick(square) {
+    if (clicks == 0) {
+        timer();
+    }
+    clicks++;
     var temp = square.target.id;
     if (cells[temp].innerText != 'M') {
         if (cells[temp].style.background == 'gainsboro') {
@@ -266,7 +305,10 @@ function rightClick(square) {
 }
 
 function turnClick(square) { //Passes through click event, displays in log what number you clicked on.
-    
+    if (clicks == 0) {
+        timer();
+    }
+    clicks++;
     var temp = square.target.id;
     if (cells[temp].innerText != 'M') {
         cells[temp].innerText = cellsState[temp];
@@ -332,11 +374,16 @@ function gameOver(gameWon) {
         cells[i].removeEventListener('click', turnClick, false);
         cells[i].removeEventListener('contextmenu', rightClick, false);
     }
-    if (gameWon == true)
+    if (gameWon == true) {
         declareWinner("You win!");
-    else
+        clearTimeout(t);
+        gameFinished = true;
+    document.getElementById("").innerHTML = number;
+    }
+    else {
         declareWinner("You lose!");
-
+        clearTimeout(t);
+    }
 }
 
 function declareWinner(who) {
