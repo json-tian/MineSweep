@@ -1,2 +1,2 @@
 # MineSweep
-A randomly generated Minesweeper game.
+A Javascript Minesweeper game with randomly generated levels.
