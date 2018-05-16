@@ -1,3 +1,4 @@
+
 td {
     border: 2px solid #333;
     height: 40px;
@@ -32,5 +33,9 @@ table {
     margin-left:0px;
     top: 75px;
     margin-bottom: 10%;
+}
+
+body {
+    background-color: aquamarine;
 }
 
