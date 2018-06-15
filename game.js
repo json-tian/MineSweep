@@ -4,7 +4,6 @@ var origBoard;  //Board
 
 const cells = document.querySelectorAll('.cell');   //Get cells from html
 var clicks = 0;
-//const cellsState = document.querySelectorAll('.cell');
 const cellsState = new Array(100);  
 cellsState.fill('');
 var h1 = document.querySelectorAll('h1')[0]
@@ -47,7 +46,7 @@ function startGame(mines) {
     cellsState.fill('');
 
     document.querySelector(".endgame").style.display = "none";  //Ignore css styles
-    origBoard = Array.from(Array(100).keys()); //Create array of 9 elements (0-8)
+    origBoard = Array.from(Array(100).keys()); //Create array of 100 elements (0-99)
     for (var y = 0; y < cells.length; y ++) {
         cells[y].innerText = '';
         cells[y].style.background = 'gainsboro';
