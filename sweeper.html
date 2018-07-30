@@ -8,19 +8,18 @@
 </head>
 <body>
 
-<p>May not work in certain browsers. Tested on chrome.</p>
+<header>
+<h2>Jason's Randomly Generated Minesweeper! </h2>
+<h3>Don't know how to play? <a href="https://magnushoff.com/minesweeper/" target="_blank"><b>View Instructions</b></a></h3>
+</header>
+
+<p>May not work on certain browsers. Tested on chrome.</p>
 <div class="timer">
         <h1><time>00:00:0<time/><h1/>
 </div>
-
-    <!-- <script>
-    window.onload = function() {  // reload file every second
-        setInterval(function() { location.reload(); } , 5000);
-    };
-</script> -->
     <table>
         <tr>
-            <td class="cell" id="0"></td>   <!--first row-->
+            <td class="cell" id="0"></td>
             <td class="cell" id="1"></td>
             <td class="cell" id="2"></td>
             <td class="cell" id="3"></td>
@@ -146,38 +145,16 @@
             <td class="cell" id="97"></td>
             <td class="cell" id="98"></td>
             <td class="cell" id="99"></td>
-
         </tr>
     </table>
-    <div class="endgame">
-        <div class="text"> </div>
-    </div>
-    <button onclick="startGame(10)">New Game (Easy)</button>
+    <div class="easy"><button onclick="startGame(10)">New Game (Easy)</button></div>
     <br><br>
-    <button onclick="startGame(20)">New Game (Medium)</button>
+    <div class="medium"><button onclick="startGame(20)">New Game (Medium)</button></div>
     <br><br>
-    <button onclick="startGame(25)">New Game (Hard)</button>
+    <div class="hard"><button onclick="startGame(25)">New Game (Hard)</button></div>
     <br><br>
 
     <script src="game.js"></script>
-
-<!--
-    <div data-role="popup" id="myPopup" class="ui-content" style="min-width:250px;">
-      <form method="post" action="/insert.php">
-        <div>
-          <h3>Enter to Leaderboards</h3>
-          <label for="usrnm" class="ui-hidden-accessible">Username:</label>
-          <input type="text" name="user" id="usrnm" placeholder="Username">
-        <label for="time" class="time">
-
-        </label>
-
-          <input type="submit" data-inline="true" value="Submit">
-        </div>
-      </form>
-      <br>
-      <a href="highscores.php">View High Scores</a>
-    </div>
--->
 </body>
 </html>
+    
